@@ -28,7 +28,7 @@ fnSetupDisk()
 
     WRK_PART=${WRK_DISK}1
 
-    if [ "x$FS_LABEL" != "x" ]
+    if [ "$FS_LABEL" != "False" ]
     then
         LABEL_OPT="-L $FS_LABEL"
         DEV_SPEC="LABEL=$FS_LABEL"
@@ -163,7 +163,7 @@ do
             echo "set fs"
         fi
 
-            [ ! -z "$lbl" ] && lbl_text="(LABEL=$lbl)" || lbl_text=''
+        [ ! -z "$lbl" ] && lbl_text="(LABEL=$lbl)" || lbl_text=''
         logger "$FILE_HDR Trying to create $disk as $mpt with $fs FS ${lbl_text}..."
         echo "$FILE_HDR Trying to create $disk as $mpt with $fs FS ${lbl_text}..." >> /usr/share/gugent/echo.out
 
